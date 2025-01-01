@@ -26,7 +26,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ### Links
 
-- Live Site URL: [](https://todowebapp.netlify.app)
+- Live Site URL: [](https://todolistingwebapp.netlify.app)
 
 ### Built with
 
