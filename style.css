@@ -1,0 +1,287 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Calibri;
+}
+:root{
+    /* Colors */
+
+    /* Primary */
+
+--Bright-Blue: hsl(220, 98%, 61%);
+--Check-Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+    /* Neutral */
+    /* Light Theme */
+
+--white-900 : hsl(0, 0%, 98%);
+--white-800: hsl(236, 33%, 92%);
+
+--font-light-700: hsl(233, 11%, 84%);
+--font-light-800: hsl(236, 9%, 61%);
+--font-light-900: hsl(235, 19%, 35%);
+  
+    /* Dark Theme */
+
+--Very-dark-blue-900: hsl(235, 21%, 11%);
+--dark-blue-800: hsl(235, 24%, 19%);
+
+--font-dark-600: hsl(234, 39%, 85%);
+--font-dark-500-hover: hsl(236, 33%, 92%);
+--font-dark-700: hsl(234, 11%, 52%);
+--font-dark-800: hsl(233, 14%, 35%);
+--font-dark-900: hsl(237, 14%, 26%);
+
+    /* transitions */
+--trans: all .2s ease;
+--theme-trans: all .5s ease-in-out;
+}
+.light-theme{
+    /* Light Theme */
+
+    --dark-blue-800: hsl(0, 0%, 98%);
+    --Very-dark-blue-900: hsl(236, 33%, 92%);
+
+    --font-dark-500-hover: hsl(235, 21%, 11%);
+    --font-dark-600: hsl(235, 24%, 19%);
+    --font-light-700: hsl(233, 11%, 84%);
+    --font-light-800: hsl(236, 9%, 61%);
+    --font-light-900: hsl(235, 19%, 35%);
+
+}
+body{
+    min-height: 100vh;
+    min-width: 400px;
+    background: url(images/bg-mobile-dark.jpg);
+    background-color: var(--Very-dark-blue-900);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+    background-attachment: fixed;
+    transition: var(--theme-trans);
+}
+body.light-theme{
+    background: url(images/bg-mobile-light.jpg);
+    background-color: var(--Very-dark-blue-900);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 80px auto 0;
+}
+.todo-container{
+    width: 90%;
+    max-width: 600px;
+    display: grid;
+    gap: 28px;
+}
+.logo-theme{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo-theme .logo{
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: var(--white-900);
+    font-weight: bold;
+}
+.logo-theme .theme{
+    cursor: pointer;
+}
+.logo-theme .theme img{
+    width: 22px;
+}
+
+.app-box{
+    display: grid;
+    gap: 14px;
+}
+.create,
+.tasks-container,
+nav{
+    background: var(--dark-blue-800);
+    padding: 16px 12px;
+    border-radius: 8px;
+    transition: var(--theme-trans);
+    box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.479);
+}
+.create{
+    position: relative;
+}
+.create::before,
+.tasks li::before{
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--font-dark-700);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.create.checked::before{
+    background: url(images/icon-check.svg);
+    background-color: var(--Bright-Blue);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+.create .add-item{
+    width: clamp(50px, 10vw, 100px);
+    color: var(--font-dark-600);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 0 8px 8px 0;
+    background: var(--Very-dark-blue-900);
+    cursor: pointer;
+    transition: var(--theme-trans);
+}
+.create .add-item:hover{
+    background: hsl(from var(--Very-dark-blue-900) h s l / 0.7);
+}
+.create input{
+    margin-left: 32px;
+    width: 75%;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: var(--font-dark-600);
+    font-size: 16px;
+}
+.create input::placeholder{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.tasks li{
+    position: relative;
+    list-style: none;
+    color: var(--font-dark-600);
+    font-weight: bold;
+    padding: 16px 0 16px 28px;
+    border-bottom: 1px solid hsl(from var(--font-dark-700) h s l / 0.5);
+    cursor: pointer;
+    transition: var(--theme-trans);
+}
+.tasks li::before{
+    left: 0;
+    transition: var(--trans);
+}
+.tasks li.checked{
+    text-decoration: line-through;
+    color: hsl(from var(--font-dark-600) h s l / 0.5);
+
+}
+.tasks li.checked::before{
+    background: url(images/icon-check.svg);
+    background-color: var(--Bright-Blue);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+}
+.tasks li:hover::before{
+    border: 1px solid var(--Bright-Blue);
+}
+.tasks li span{
+    float: right;
+    margin-right: 12px;
+    visibility: hidden;
+    
+}
+.tasks li span img{
+    width: 14px;
+}
+.tasks li:hover span{
+    visibility: visible;
+}
+.actions{
+    padding: 16px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--font-dark-700);
+    font-size: 12px;
+    font-weight: bold;
+}
+.actions .clear{
+    cursor: pointer;
+    transition: var(--trans);
+}
+.actions .clear:hover{
+    color: var(--font-dark-500-hover);
+}
+.actions .clearAll{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--trans);
+}
+.actions .clearAll:hover{
+    color: var(--Bright-Blue);
+}
+.nav-list{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.nav-list li{
+    list-style: none;
+    color: var(--font-dark-700);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--trans);
+}
+.nav-list li:hover{
+    color: var(--font-dark-500-hover);
+}
+.nav-list li.checked{
+    color: var(--Bright-Blue);
+}
+.drag-function{
+    text-align: center;
+    color: var(--font-dark-700);
+    opacity: .7;
+}
+
+
+@media (min-width: 450px) {
+    .create .add-item{
+        font-size: 16px;
+    }
+}
+@media (min-width: 768px) {
+    body{
+        background: url(images/bg-desktop-dark.jpg);
+        background-color: var(--Very-dark-blue-900);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+    body.light-theme{
+        background: url(images/bg-desktop-light.jpg);
+         background-color: var(--Very-dark-blue-900);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+    
+    .tasks li span img{
+        width: 16px;
+    }
+    .tasks li span{
+        visibility: visible;
+    }
+}

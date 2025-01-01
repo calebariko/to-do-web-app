@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Todo App</title>
+
+  <script defer src="main.js"></script>
+
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; margin-top: 20px; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="todo-container">
+      <div class="logo-theme">
+        <span class="logo">todo</span>
+        <span class="theme"><img src="images/icon-sun.svg"></span>
+      </div>
+
+      <div class="app-box">
+        <div class="create checked">
+          <input type="text" id="create" placeholder="Create a new todo...">
+          <span class="add-item" id="add-item">add</span>
+        </div>
+
+        <div class="tasks-container">
+          <ul class="tasks">
+            
+          </ul>
+          <div class="actions">
+            <span class="left-items"><span class="quantity">0</span> items left</span>
+            <span class="clearAll">Clear All</span>
+            <span class="clear">Clear Completed</span>
+          </div>
+        </div>
+
+        <nav>
+          <ul class="nav-list">
+            <li class="checked nav-list-item" data-filter="all">All</li>
+            <li class="nav-list-item" data-filter="active">Active</li>
+            <li class="nav-list-item" data-filter="completed">Completed</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="drag-function">Drag and drop to reorder list</div>
+    </div>
+
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/calebariko/to-do-web-app">Caleb Ariko</a>.
+  </div>
+</body>
+</html>
